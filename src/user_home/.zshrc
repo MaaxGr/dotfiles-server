@@ -2,6 +2,7 @@
 # init antigen
 source /opt/antigen/antigen.zsh
 
+antigen theme maaxgr
 antigen apply
 
 
