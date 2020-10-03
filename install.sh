@@ -1,8 +1,14 @@
 #!/bin/zsh
 
+SRC_USER_HOME="$PWD/src/user_home"
+
 # ZSH
-ln -s $PWD/src/user_home/.zshrc $HOME/.zshrc
-ln -s $PWD/src/user_home/.config/zsh/maaxgr.zsh-theme $HOME/.oh-my-zsh/themes/maaxgr.zsh-theme
+unlink $HOME/.zshrc
+ln -s $SRC_USER_HOME/.zshrc $HOME/.zshrc
+
+unlink $HOME/.oh-my-zsh/themes/maaxgr.zsh-theme
+ln -s $SRC_USER_HOME/.config/zsh/maaxgr.zsh-theme $HOME/.oh-my-zsh/themes/maaxgr.zsh-theme
 
 # Scripts
-ln -ls $PWD/src/user_home/.scripts $home/.scripts
+unlink $home/.scripts
+ln -s $SRC_USER_HOME/.scripts $home/.scripts

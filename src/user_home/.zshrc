@@ -1,10 +1,25 @@
+#!/bin/zsh
 
-# init antigen
-source /opt/antigen/antigen.zsh
+function init_zsh() {
+  export ZSH="$HOME/.oh-my-zsh"
 
-antigen theme maaxgr
-antigen apply
+  ZSH_THEME="maaxgr"
+  DISABLE_AUTO_UPDATE=true
 
+  source $ZSH/oh-my-zsh.sh
+}
 
-# source completions
-for f in $HOME/.scripts/*; do source $f; done
+function init_antigen() {
+  source /opt/antigen/antigen.zsh
+
+  antigen bundle zsh-autosuggestions
+  antigen apply
+}
+
+function source_scripts() {
+  for f in $HOME/.scripts/*; do source $f; done
+}
+
+init_zsh
+init_antigen
+source_scripts
