@@ -20,6 +20,12 @@ function source_scripts() {
   for f in $HOME/.scripts/*; do source $f; done
 }
 
+function init_system_specific() {
+  [[ -f ~/.rclocal ]] && source ~/.rclocal
+}
+
+
 init_zsh
 init_antigen
 source_scripts
+init_system_specific
